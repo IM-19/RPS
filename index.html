@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RPS Game</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Barlow:wght@600&display=swap");
+    </style>
+    <link rel="stylesheet" href="style.css" />
+    <script src="/js/index.js"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="header">
+        <img src="/assets/logo.svg" alt="" srcset="" />
+        <div class="score">
+          <p>SCORE</p>
+          <h1 id="score-number">0</h1>
+        </div>
+      </div>
+      <div class="contest">
+        <img class="triangle" src="/assets/bg-triangle.svg" alt="" />
+        <div class="hands">
+          <button onclick="pickUserHand('paper')">
+            <div class="paper">
+              <img src="/assets/icon-paper.svg" alt="" />
+            </div>
+          </button>
+          <button onclick="pickUserHand('scissors')">
+            <div class="scissors">
+              <img src="/assets/icon-scissors.svg" alt="" />
+            </div>
+          </button>
+          <button onclick="pickUserHand('rock')">
+            <div class="rock">
+              <img src="/assets/icon-rock.svg" alt="" />
+            </div>
+          </button>
+        </div>
+      </div>
+      <div class="result">
+        <div class="hand-selection">
+          <h1>YOU PICKED</h1>
+          <div class="image-container" id="styleImage">
+            <img id="userClick" src="" alt="" />
+          </div>
+        </div>
+        <div class="outcome">
+          <div class="decision" id="changeText">
+            <h1 class="matchWin">YOU WIN</h1>
+          </div>
+          <div class="new-game" onclick="startNewGame()">PLAY AGAIN</div>
+        </div>
+        <div class="house-selection">
+          <h1>THE HOUSE PICKED</h1>
+          <div class="image-container" id="styleComputerImage">
+            <img id="computer-hand" src="" alt="" />
+          </div>
+        </div>
+      </div>
+      <div class="rules-button" id="myBtn">
+        <button class="rules" id="myBtn">RULES</button>
+      </div>
+      <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <div class="rules-sec">
+            <p>RULES</p>
+            <span class="close">&times;</span>
+          </div>
+
+          <div class="modal-image">
+            <img src="./assets/image-rules.svg" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  var modal = document.getElementById("myModal");
+
+  // Get the button that opens the modal
+  var btn = document.getElementById("myBtn");
+
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+
+  // When the user clicks the button, open the modal
+  btn.onclick = function () {
+    modal.style.display = "flex";
+  };
+
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function () {
+    modal.style.display = "none";
+  };
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  };
+</script>

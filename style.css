@@ -1,0 +1,259 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Barlow";
+}
+.wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  background-image: radial-gradient(
+    134.4% 134.4% at 50% 0%,
+    hsl(214, 47%, 23%),
+    hsl(237, 49%, 15%)
+  );
+  height: 100vh;
+  width: 100vw;
+  /* margin: 10px; */
+}
+.header {
+  border-radius: 10px;
+  border: solid 3px #4d5c7b;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  height: 13vh;
+  width: 35vw;
+  padding: 1.3vw;
+}
+.score {
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 90%;
+  width: 20%;
+}
+.score h1 {
+  font-size: 66px;
+  color: #59556d;
+  margin-top: -1vh;
+}
+.score p {
+  font-size: 14px;
+  letter-spacing: 0.1vw;
+  color: hsl(229, 64%, 46%);
+}
+.rules {
+  color: white;
+  cursor: pointer;
+  font-family: "Barlow";
+}
+.rules-button {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 5vw;
+  border-radius: 10px;
+  border: solid 2.5px white;
+  height: 3.5vh;
+  width: 6vw;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+}
+.rules-button:hover .rules {
+  color: black;
+}
+.rules-button:hover {
+  background-color: white;
+}
+.contest {
+  width: 25vw;
+  height: 55vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hands {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /* position: absolute; */
+  z-index: 999;
+  margin-top: -3.5vh;
+  /* transition: all 0.25s ease-in-out; */
+}
+.paper {
+  border-radius: 50%;
+  background-color: white;
+  height: 7vw;
+  width: 7vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 20px solid #5870ff;
+  transition: all 0.25s ease-in-out;
+}
+.scissors {
+  border-radius: 50%;
+  background-color: white;
+  height: 7vw;
+  width: 7vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 20px solid #eda320;
+  transition: all 0.25s ease-in-out;
+}
+.rock {
+  border-radius: 50%;
+  background-color: white;
+  height: 7vw;
+  width: 7vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 20px solid #e63d56;
+  transition: all 0.25s ease-in-out;
+}
+.rock:hover,
+.paper:hover,
+.scissors:hover {
+  transform: translate3d(0px, -8px, 0px);
+  cursor: pointer;
+}
+.triangle {
+  position: fixed;
+  overflow: hidden;
+}
+button {
+  background: none;
+  border: none;
+}
+.result {
+  display: none;
+  /* display: flex; */
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 40vw;
+  height: 50vh;
+}
+.hand-selection {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: inherit;
+  flex-direction: column;
+}
+.hand-selection h1,
+.house-selection h1 {
+  color: white;
+  font-size: 22px;
+}
+.outcome {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: inherit;
+  flex-direction: column;
+}
+.matchDraw {
+  color: white;
+}
+.house-selection {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: inherit;
+  flex-direction: column;
+}
+.new-game {
+  border-radius: 5px;
+  color: hsl(229, 25%, 31%);
+
+  height: 3vh;
+  width: 7vw;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  font-size: 12px;
+  margin-top: 20px;
+  letter-spacing: 1px;
+}
+.new-game:hover {
+  background-color: aliceblue;
+}
+.matchWin {
+  color: green;
+}
+.matchLoss {
+  color: crimson;
+}
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 9999; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  /* display: flex; */
+
+  align-items: center;
+  justify-content: center;
+}
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 10px 10px;
+  border: 1px solid #888;
+  width: 20%;
+  height: 40%;
+  border-radius: 10px;
+}
+
+.modal-content p {
+  color: #21375c;
+  font-size: 24px;
+  font-family: "Barlow";
+}
+.rules-sec {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 90%;
+}
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 42px;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 100;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
